@@ -1,0 +1,19 @@
+{
+  "name": "coptic-calendar",
+  "version": "1.0.0",
+  "description": "Coptic Fasts and Feasts Calendar",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.20",
+    "@fullcalendar/daygrid": "^6.1.20",
+    "@fullcalendar/interaction": "^6.1.20",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "puppeteer": "^19.0.0"
+  }
+}
