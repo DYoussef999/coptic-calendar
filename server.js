@@ -23,6 +23,23 @@ async function initBrowser() {
   return browser;
 }
 
+// Route for static version
+app.get('/static', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'static.html'));
+});
+
+// Route for events data (explicit - also served via express.static)
+app.get('/events-data.json', (req, res) => {
+  const dataPath = path.join(__dirname, 'public', 'events-data.json');
+  res.setHeader('Content-Type', 'application/json');
+  res.sendFile(dataPath, (err) => {
+    if (err) {
+      console.error('Error serving events-data.json:', err);
+      res.status(404).json({ error: 'Events data file not found. Run extract-events.js first.' });
+    }
+  });
+});
+
 // Scrape the Coptic fasts and feasts data
 app.get('/api/fasts-feasts/:year', async (req, res) => {
   let page;
@@ -220,5 +237,14 @@ process.on('SIGINT', async () => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`\n📅 Coptic Calendar Server Running!`);
+  console.log(`   Base URL: http://localhost:${PORT}`);
+  console.log(`\n   📂 Available Versions:`);
+  console.log(`      • Dynamic (scrapes live data): http://localhost:${PORT}`);
+  console.log(`      • Static (pre-cached data): http://localhost:${PORT}/static`);
+  console.log(`\n   📊 API Endpoints:`);
+  console.log(`      • Events (dynamic): http://localhost:${PORT}/api/fasts-feasts/:year`);
+  console.log(`      • Events (static data): http://localhost:${PORT}/events-data.json`);
+  console.log(`\n   💾 Data File: public/events-data.json`);
+  console.log(`   🔧 To extract all years (2000-2100), run: node extract-events.js\n`);
 });

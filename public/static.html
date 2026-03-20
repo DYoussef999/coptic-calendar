@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coptic Fasts & Feasts Calendar (Static)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="sidebar">
+        <!-- Today Section -->
+        <div class="today-section">
+          <div id="todayContent" class="today-content">
+            <div style="padding: 15px; color: #666; text-align: center;">
+              Loading date information...
+            </div>
+          </div>
+        </div>
+
+        <!-- Events List Section -->
+        <div class="events-list">
+          <h2>Fasts & Feasts</h2>
+          <label for="searchInput" style="display: block; margin-bottom: 0px; font-size: 12px; color: #666;">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search events...">
+          </label>
+          <ul id="eventsList">
+            <!-- Events will be populated here -->
+          </ul>
+        </div>
+      </div>
+
+      <div id="calendar" class="calendar-container">
+        <!-- Calendar will be generated here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6/index.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6/index.global.js"></script>
+  <script src="static-client.js"></script>
+</body>
+</html>

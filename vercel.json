@@ -1,0 +1,36 @@
+{
+  "public": "public",
+  "buildCommand": "npm install",
+  "devCommand": "npm run dev",
+  "env": [],
+  "headers": [
+    {
+      "source": "/static.html",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/events-data.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/static",
+      "destination": "/static.html"
+    }
+  ]
+}
