@@ -1,5 +1,4 @@
 {
-  "public": "public",
   "buildCommand": "npm install",
   "devCommand": "npm run dev",
   "headers": [
