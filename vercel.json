@@ -1,4 +1,6 @@
 {
-  "buildCommand": "echo 'Static files ready'",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "buildCommand": "npm run build",
   "outputDirectory": "public"
 }
