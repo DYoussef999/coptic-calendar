@@ -90,7 +90,7 @@ async function loadEventsFromData() {
   if (Object.keys(allEventsDataMap).length === 0) {
     console.log('Loading all events data...');
     try {
-      const response = await fetch('./events-data.json');
+      const response = await fetch('/events-data.json');
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: Failed to load events data`);
       }
